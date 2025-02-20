@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import NavBar from "./components/ui/NavBar"
 import Hero from "./components/ui/Hero"
+import Skills from "./components/ui/Skills"
 import Footer from "./components/ui/Footer"
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -54,6 +55,7 @@ function App() {
                     className="flex-grow"
                   >
                     <Hero />
+                    <Skills />
                   </motion.main>
                 } />
                 <Route path="*" element={
