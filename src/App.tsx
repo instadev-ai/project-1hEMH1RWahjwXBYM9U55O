@@ -15,7 +15,7 @@ function App() {
         <Toaster />
         <Sonner />
         <Router>
-          <div className="min-h-screen bg-background selection:bg-primary/20 selection:text-primary">
+          <div className="min-h-screen bg-[#1a1a2e] selection:bg-[#4d5bf9]/20 selection:text-[#4d5bf9] text-white">
             <NavBar />
             <Routes>
               <Route path="/" element={<Hero />} />
