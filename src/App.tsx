@@ -7,7 +7,6 @@ import NavBar from "./components/ui/NavBar"
 import Hero from "./components/ui/Hero"
 import Footer from "./components/ui/Footer"
 import { AnimatePresence, motion } from "framer-motion"
-import "./App.css"
 
 const queryClient = new QueryClient()
 
@@ -41,44 +40,38 @@ function App() {
         <Toaster />
         <Sonner />
         <Router>
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="min-h-screen bg-[#1a1a2e] selection:bg-[#4d5bf9]/20 selection:text-[#4d5bf9] text-white"
-          >
+          <div className="flex flex-col min-h-screen bg-background">
             <NavBar />
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={
-                  <motion.div
+                  <motion.main
                     key="home"
                     variants={pageVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
+                    className="flex-grow"
                   >
                     <Hero />
-                    <Footer />
-                  </motion.div>
+                  </motion.main>
                 } />
                 <Route path="*" element={
-                  <motion.div
+                  <motion.main
                     key="404"
                     variants={pageVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
+                    className="flex-grow flex items-center justify-center"
                   >
-                    <div className="flex items-center justify-center min-h-screen">
-                      <h1 className="text-4xl">404 - Page Not Found</h1>
-                    </div>
-                    <Footer />
-                  </motion.div>
+                    <h1 className="text-4xl">404 - Page Not Found</h1>
+                  </motion.main>
                 } />
               </Routes>
             </AnimatePresence>
-          </motion.div>
+            <Footer />
+          </div>
         </Router>
       </TooltipProvider>
     </QueryClientProvider>
